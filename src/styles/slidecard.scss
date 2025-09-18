@@ -1,0 +1,281 @@
+/* Carousel styles */
+.wrapper {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+
+    .embla {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .embla__container {
+        display: flex;
+        gap: 24px;
+        padding: 0 5%;
+    }
+
+    .embla__slide {
+        position: relative;
+        min-width: 90%;
+        flex: 0 0 90%;
+        padding: 18px;
+
+        .card {
+            width: 100%;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        &.embla__slide--active {
+            .card {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        &:not(.embla__slide--active) {
+            .card {
+                transform: scaleY(0.8);
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+        padding: 0 8px;
+
+        .arrow {
+            pointer-events: all;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.8);
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .dots {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 14px;
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cfd8dc;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+
+            &.active {
+                background: #263238;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+/* SlideCard styles */
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #e6f8f9;
+    /* light aqua left */
+    box-shadow: 0 6px 30px rgba(20, 30, 40, 0.08);
+    position: relative;
+    min-height: 640px;
+
+    .left {
+        padding: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .topBadge {
+            display: flex;
+            justify-content: center;
+            background: #ffe4c4;
+            color: #7a4b00;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 100px;
+        }
+
+        .title {
+            font-size: clamp(26px, 5.5vw, 56px);
+            line-height: 1.02;
+            font-weight: 800;
+            color: #0b1b1f;
+            margin: 10px 0;
+        }
+
+        .excerpt {
+            color: #6b7b7f;
+            max-width: 62%;
+        }
+
+        .metaRow {
+            margin-top: 12px;
+
+            .pill {
+                background: rgba(0, 0, 0, 0.05);
+                padding: 10px 14px;
+                border-radius: 22px;
+                margin-right: 12px;
+                display: inline-block;
+                color: #0b1b1f;
+                font-weight: 500;
+            }
+        }
+
+        .bottomRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 28px;
+
+            .author {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                .avatar {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    display: block;
+                    border: 2px solid rgba(0, 0, 0, 0.08);
+                }
+
+                .authorName {
+                    color: #0b1b1f;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 1.2;
+                }
+
+                .date {
+                    color: #6b7b7f;
+                    font-size: 12px;
+                }
+            }
+
+            .cta {
+                border-radius: 12px;
+                padding: 12px 20px;
+                background: #000;
+                color: #fff;
+                border: none;
+                font-weight: 700;
+                cursor: pointer;
+                transition: transform 0.2s ease, background 0.2s ease;
+
+                &:hover {
+                    background: #111;
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+
+    .right {
+        position: relative;
+        min-height: 360px;
+
+        .heroImg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-top-right-radius: 22px;
+            border-bottom-right-radius: 22px;
+        }
+    }
+
+    .sticker {
+        position: absolute;
+        right: 48%;
+        top: 22px;
+        transform: translateX(50%);
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        padding: 18px;
+        font-size: 12px;
+        text-align: center;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+        pointer-events: none;
+    }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .card {
+        grid-template-columns: 1fr;
+
+        .left {
+            padding: 28px;
+
+            .excerpt {
+                max-width: 100%;
+            }
+        }
+
+        .right {
+            order: -1;
+
+            .heroImg {
+                border-top-right-radius: 22px;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: 22px;
+            }
+        }
+
+        .sticker {
+            right: 16px;
+            transform: none;
+        }
+    }
+
+    .wrapper {
+        .controls {
+            .arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+                line-height: 36px;
+            }
+        }
+    }
+}

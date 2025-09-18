@@ -1,0 +1,86 @@
+@use './_variables.scss' as vars;
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        padding: 20px 0;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            img {
+                width: 100px;
+            }
+
+            span {
+                font-family: 'inter', sans-serif;
+                padding-top: 15px;
+                font-size: 16px;
+                color: black;
+                opacity: 0.7;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            a {
+                font-family: 'inter', sans-serif;
+                font-size: 16px;
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 0;
+        border-top: 1px solid #e5e5e5;
+        position: relative;
+
+        span {
+            flex: 1;
+            text-align: center;
+            font-family: 'inter', sans-serif;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            a {
+                color: #333;
+                font-size: 20px;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #ff6b35; // Orange color similar to the design
+                }
+            }
+        }
+    }
+
+
+}

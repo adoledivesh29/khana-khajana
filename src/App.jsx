@@ -5,7 +5,7 @@ import AppRouter from "./router/AppRouter";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 
-import "./styles/index.css"; // global styles
+import "./styles/index.scss"; // global styles
 
 function App() {
   return (

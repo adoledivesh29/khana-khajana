@@ -1,0 +1,14 @@
+@use './_fonts.scss';
+@use './_variables.scss';
+@use './navbar.scss';
+@use './footer.scss';
+@use './slidecard.scss';
+@use './categories.scss';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
